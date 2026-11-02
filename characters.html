@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOS団のキャラクター - Characters of the SOS Brigade</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .japanese-text {
+            position: relative;
+            cursor: help;
+            display: inline-block;
+        }
+        
+        .japanese-text .jp,
+        .japanese-text .en {
+            text-align: center;
+            display: inline-block;
+            padding: 0 2px;
+        }
+        
+        .japanese-text .jp {
+            visibility: visible;
+        }
+        
+        .japanese-text:hover .jp {
+            visibility: hidden;
+        }
+        
+        .japanese-text .en {
+            visibility: hidden;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            box-shadow: 0 0 3px rgba(0,0,0,0.1);
+            z-index: 10;
+            padding: 0 5px;
+            border-radius: 3px;
+            width: max-content;
+        }
+        
+        .japanese-text:hover .en {
+            visibility: visible;
+        }
+        
+        /* Navigation Bar Styles */
+        .navbar {
+            text-align: center;
+            padding: 10px 0;
+            margin: 30px auto 5px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .navbar ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navbar li {
+            margin: 0 20px;
+        }
+
+        .logo-item {
+            margin: 0 30px; /* Slightly larger margin for the logo */
+        }
+
+        .site-logo {
+            width: 65px;
+            height: 65px;
+            vertical-align: middle;
+            margin-bottom: -5px; /* Slight adjustment to vertical alignment */
+        }
+
+        .navbar .nav-link {
+            text-decoration: none;
+            color: #0066cc;
+            font-size: 14px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        
+        /* Character Card Styles */
+        .character-card {
+            max-width: 800px;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .character-image {
+            width: 150px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #000;
+            margin: 15px;
+            overflow: hidden;
+        }
+        
+        .character-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .character-info {
+            flex: 1;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        .character-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 0 10px;
+        }
+        
+        .haruhi-text {
+            color: #ff0000;
+        }
+        
+        .kyon-text {
+            color: #6f4936;
+        }
+        
+        .yuki-text {
+            color: #37a1da;
+        }
+        
+        .mikuru-text {
+            color: #f5af00;
+        }
+        
+        .koizumi-text {
+            color: #9b4896;
+        }
+        
+        .tsuruya-text{
+            color: #049951;
+        }
+
+        .ryoko-text{
+            color: #00529c;
+        }
+
+        .kyonsister-text{
+            color: #e86f8b;
+        }
+        
+        .character-detail {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        
+        .character-description {
+            margin-top: 15px;
+            line-height: 1.5;
+        }
+        
+        .spoiler-button {
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 12px;
+            display: inline-block;
+            margin-top: 15px;
+        }
+        
+        .spoiler-content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #000;
+            margin-top: 10px;
+            background-color: #fff;
+            text-align: left;
+        }
+        
+        /* Character colors */
+        .haruhi-color {
+            background-color: #ff0000;
+        }
+        
+        .kyon-color {
+            background-color: ##6f4936;
+        }
+        
+        .yuki-color {
+            background-color: #ff00cc;
+        }
+        
+        .mikuru-color {
+            background-color: #00cccc;
+        }
+        
+        .koizumi-color {
+            background-color: #ff9900;
+        }
+        
+        /* Minor Characters */
+        .minor-characters {
+            max-width: 800px;
+            margin: 30px auto;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+        
+        .minor-characters h2 {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        
+        .minor-characters ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .minor-characters li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        
+        .minor-characters a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        .minor-characters a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar"></div>
+    
+    <nav class="navbar">
+        <ul>
+            <li><a href="about.html" class="nav-link japanese-text"><span class="jp">自己紹介</span><span class="en">About</span></a></li>
+            <li><a href="characters.html" class="nav-link japanese-text"><span class="jp">キャラクター</span><span class="en">Characters</span></a></li>
+            <li><a href="media.html" class="nav-link japanese-text"><span class="jp">メディア</span><span class="en">Media</span></a></li>
+            <li class="logo-item"><a href="index.html"><img src="images/sos-logo.svg" alt="SOS Logo" class="site-logo"></a></li>
+            <li><a href="watchorder.html" class="nav-link japanese-text"><span class="jp">視聴順</span><span class="en">Watch Order</span></a></li>
+            <li><a href="analysis.html" class="nav-link japanese-text"><span class="jp">分析</span><span class="en">Analysis</span></a></li>
+            <li><a href="influences.html" class="nav-link japanese-text"><span class="jp">影響</span><span class="en">Influences</span></a></li>
+            <li><a href="guestbook.html" class="nav-link japanese-text"><span class="jp">ゲストブック</span><span class="en">Guestbook</span></a></li>
+        </ul>
+    </nav>
+    
+    <!-- Haruhi Suzumiya -->
+    <div class="character-card">
+        <div class="character-image">
+            <img src="images/haruhi.png" alt="Haruhi Suzumiya">
+        </div>
+        <div class="character-info">
+            <h2 class="character-name haruhi-text">Haruhi Suzumiya</h2>
+            <p class="character-detail"><strong>Japanese:</strong> 涼宮 ハルヒ (Suzumiya Haruhi)</p>
+            <p class="character-detail"><strong>Role:</strong> Brigade Chief and Founder</p>
+            
+            <p class="character-description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+            
+            <div class="spoiler-button" id="haruhi-spoiler-toggle">Click to reveal spoiler</div>
+            <div class="spoiler-content" id="haruhi-spoiler-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Kyon -->
+    <div class="character-card">
+        <div class="character-image">
+            <img src="images/kyon.png" alt="Kyon">
+        </div>
+        <div class="character-info">
+            <h2 class="character-name kyon-text">Kyon</h2>
+            <p class="character-detail"><strong>Japanese:</strong> キョン (Kyon)</p>
+            <p class="character-detail"><strong>Role:</strong> Narrator and Sole Normal Human</p>
+            
+            <p class="character-description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+            
+            <div class="spoiler-button" id="kyon-spoiler-toggle">Click to reveal spoiler</div>
+            <div class="spoiler-content" id="kyon-spoiler-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Yuki Nagato -->
+    <div class="character-card">
+        <div class="character-image">
+            <img src="images/yuki.png" alt="Yuki Nagato">
+        </div>
+        <div class="character-info">
+            <h2 class="character-name yuki-text">Yuki Nagato</h2>
+            <p class="character-detail"><strong>Japanese:</strong> 長門 有希 (Nagato Yuki)</p>
+            <p class="character-detail"><strong>Role:</strong> Literature Club Member, SOS Brigade Member</p>
+            
+            <p class="character-description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+            
+            <div class="spoiler-button" id="yuki-spoiler-toggle">Click to reveal spoiler</div>
+            <div class="spoiler-content" id="yuki-spoiler-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mikuru Asahina -->
+    <div class="character-card">
+        <div class="character-image">
+            <img src="images/mikuru.png" alt="Mikuru Asahina">
+        </div>
+        <div class="character-info">
+            <h2 class="character-name mikuru-text">Mikuru Asahina</h2>
+            <p class="character-detail"><strong>Japanese:</strong> 朝比奈 みくる (Asahina Mikuru)</p>
+            <p class="character-detail"><strong>Role:</strong> SOS Brigade Member, "Mascot"</p>
+            
+            <p class="character-description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+            
+            <div class="spoiler-button" id="mikuru-spoiler-toggle">Click to reveal spoiler</div>
+            <div class="spoiler-content" id="mikuru-spoiler-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Itsuki Koizumi -->
+    <div class="character-card">
+        <div class="character-image">
+            <img src="images/itsuki.png" alt="Itsuki Koizumi">
+        </div>
+        <div class="character-info">
+            <h2 class="character-name koizumi-text">Itsuki Koizumi</h2>
+            <p class="character-detail"><strong>Japanese:</strong> 古泉 一樹 (Koizumi Itsuki)</p>
+            <p class="character-detail"><strong>Role:</strong> SOS Brigade Member, Transfer Student</p>
+            
+            <p class="character-description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+            
+            <div class="spoiler-button" id="koizumi-spoiler-toggle">Click to reveal spoiler</div>
+            <div class="spoiler-content" id="koizumi-spoiler-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Tsuruya -->
+    <div class="character-card">
+        <div class="character-image">
+            <img src="images/tsuruya.png" alt="Tsuruya">
+        </div>
+        <div class="character-info">
+            <h2 class="character-name tsuruya-text">Tsuruya</h2>
+            <p class="character-detail"><strong>Japanese:</strong> 鶴屋 (Tsuruya)</p>
+            <p class="character-detail"><strong>Role:</strong> Mikuru's Friend, Supporting Character</p>
+            
+            <p class="character-description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+            
+            <div class="spoiler-button" id="tsuruya-spoiler-toggle">Click to reveal spoiler</div>
+            <div class="spoiler-content" id="tsuruya-spoiler-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ryoko Asakura -->
+    <div class="character-card">
+        <div class="character-image">
+            <img src="images/ryoko.png" alt="Ryoko Asakura">
+        </div>
+        <div class="character-info">
+            <h2 class="character-name ryoko-text">Ryoko Asakura</h2>
+            <p class="character-detail"><strong>Japanese:</strong> 朝倉 涼子 (Asakura Ryōko)</p>
+            <p class="character-detail"><strong>Role:</strong> Class Representative, Supporting Character</p>
+            
+            <p class="character-description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+            
+            <div class="spoiler-button" id="ryoko-spoiler-toggle">Click to reveal spoiler</div>
+            <div class="spoiler-content" id="ryoko-spoiler-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Kyon's Sister -->
+    <div class="character-card">
+        <div class="character-image">
+            <img src="images/kyonsister.png" alt="Kyon's Sister">
+        </div>
+        <div class="character-info">
+            <h2 class="character-name kyonsister-text">Kyon's Sister</h2>
+            <p class="character-detail"><strong>Japanese:</strong> キョンの妹 (Kyon no Imōto)</p>
+            <p class="character-detail"><strong>Role:</strong> Supporting Character</p>
+            
+            <p class="character-description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+            
+            <div class="spoiler-button" id="kyonsister-spoiler-toggle">Click to reveal spoiler</div>
+            <div class="spoiler-content" id="kyonsister-spoiler-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Minor Characters -->
+    <div class="minor-characters">
+        <h2>Other Notable Characters</h2>
+        <ul>
+            <li><strong>Shamisen:</strong></li>
+            <li><strong>Adult Mikuru:</strong></li>
+            <li><strong>Yasumi Watahashi:</strong></li>
+            <li><strong>Kuyou Suou:</strong></li>
+            <li><strong>Fujiwara:</strong></li>
+            <li><strong>Sasaki:</strong></li>
+            <li><strong>Taniguchi:</strong></li>
+            <li><strong>Kunikida:</strong></li>
+            <li><strong>Emiri Kimidori:</strong></li>
+        </ul>
+    </div>
+    
+    <div class="marquee-container">
+        <div class="marquee">
+            SOS団のサイトへようこそ！Welcome to the SOS Brigade website! This site is best viewed in Internet Explorer 6.0 or Netscape Navigator at 800x600 resolution
+        </div>
+    </div>
+    
+    <footer>
+        <p> 2025 - Cleo Rosen</p>
+        <p>This is a fan-made site and is not affiliated with any official Haruhi Suzumiya entities.</p>
+    </footer>
+    
+    <script src="js/config.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        // Spoiler toggle functionality for each character
+        document.getElementById('haruhi-spoiler-toggle').addEventListener('click', function() {
+            toggleSpoiler('haruhi-spoiler-content', this);
+        });
+        
+        document.getElementById('kyon-spoiler-toggle').addEventListener('click', function() {
+            toggleSpoiler('kyon-spoiler-content', this);
+        });
+        
+        document.getElementById('yuki-spoiler-toggle').addEventListener('click', function() {
+            toggleSpoiler('yuki-spoiler-content', this);
+        });
+        
+        document.getElementById('mikuru-spoiler-toggle').addEventListener('click', function() {
+            toggleSpoiler('mikuru-spoiler-content', this);
+        });
+        
+        document.getElementById('koizumi-spoiler-toggle').addEventListener('click', function() {
+            toggleSpoiler('koizumi-spoiler-content', this);
+        });
+
+        document.getElementById('tsuruya-spoiler-toggle').addEventListener('click', function() {
+            toggleSpoiler('tsuruya-spoiler-content', this);
+        });
+
+        document.getElementById('ryoko-spoiler-toggle').addEventListener('click', function() {
+            toggleSpoiler('ryoko-spoiler-content', this);
+        });
+
+        document.getElementById('kyonsister-spoiler-toggle').addEventListener('click', function() {
+            toggleSpoiler('kyonsister-spoiler-content', this);
+        });
+        
+        function toggleSpoiler(contentId, button) {
+            const spoilerContent = document.getElementById(contentId);
+            if (spoilerContent.style.display === 'none' || spoilerContent.style.display === '') {
+                spoilerContent.style.display = 'block';
+                button.textContent = 'Hide spoiler';
+            } else {
+                spoilerContent.style.display = 'none';
+                button.textContent = 'Click to reveal spoiler';
+            }
+        }
+    </script>
+</body>
+</html> 

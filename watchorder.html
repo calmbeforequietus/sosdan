@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>視聴順 - Watch Order | SOS Brigade</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .japanese-text {
+            position: relative;
+            cursor: help;
+            display: inline-block;
+        }
+        
+        .japanese-text .jp,
+        .japanese-text .en {
+            text-align: center;
+            display: inline-block;
+            padding: 0 2px;
+        }
+        
+        .japanese-text .jp {
+            visibility: visible;
+        }
+        
+        .japanese-text:hover .jp {
+            visibility: hidden;
+        }
+        
+        .japanese-text .en {
+            visibility: hidden;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            box-shadow: 0 0 3px rgba(0,0,0,0.1);
+            z-index: 10;
+            padding: 0 5px;
+            border-radius: 3px;
+            width: max-content;
+        }
+        
+        .japanese-text:hover .en {
+            visibility: visible;
+        }
+        
+        /* Navigation Bar Styles */
+        .navbar {
+            text-align: center;
+            padding: 10px 0;
+            margin: 30px auto 5px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .navbar ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navbar li {
+            margin: 0 20px;
+        }
+
+        .logo-item {
+            margin: 0 30px; /* Slightly larger margin for the logo */
+        }
+
+        .site-logo {
+            width: 65px;
+            height: 65px;
+            vertical-align: middle;
+            margin-bottom: -5px; /* Slight adjustment to vertical alignment */
+        }
+
+        .navbar .nav-link {
+            text-decoration: none;
+            color: #0066cc;
+            font-size: 14px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        
+        /* Watch order content styles */
+        .content-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar"></div>
+    
+    <nav class="navbar">
+        <ul>
+            <li><a href="about.html" class="nav-link japanese-text"><span class="jp">自己紹介</span><span class="en">About</span></a></li>
+            <li><a href="characters.html" class="nav-link japanese-text"><span class="jp">キャラクター</span><span class="en">Characters</span></a></li>
+            <li><a href="media.html" class="nav-link japanese-text"><span class="jp">メディア</span><span class="en">Media</span></a></li>
+            <li class="logo-item"><a href="index.html"><img src="images/sos-logo.svg" alt="SOS Logo" class="site-logo"></a></li>
+            <li><a href="watchorder.html" class="nav-link japanese-text"><span class="jp">視聴順</span><span class="en">Watch Order</span></a></li>
+            <li><a href="analysis.html" class="nav-link japanese-text"><span class="jp">分析</span><span class="en">Analysis</span></a></li>
+            <li><a href="influences.html" class="nav-link japanese-text"><span class="jp">影響</span><span class="en">Influences</span></a></li>
+            <li><a href="guestbook.html" class="nav-link japanese-text"><span class="jp">ゲストブック</span><span class="en">Guestbook</span></a></li>
+        </ul>
+    </nav>
+    
+    <div class="content-container">
+        <h1>The Melancholy of Haruhi Suzumiya: Watch Order Guide</h1>
+        
+        <!-- Content removed as requested -->
+        
+    </div>
+    
+    <div class="marquee-container">
+        <div class="marquee">
+            SOS団のサイトへようこそ！Welcome to the SOS Brigade website! This site is best viewed in Internet Explorer 6.0 or Netscape Navigator at 800x600 resolution
+        </div>
+    </div>
+    
+    <footer>
+        <p> 2025 - Cleo Rosen</p>
+        <p>This is a fan-made site and is not affiliated with any official Haruhi Suzumiya entities.</p>
+    </footer>
+    
+    <script src="js/config.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html> 
